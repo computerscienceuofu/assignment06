@@ -1,25 +1,58 @@
 package assignment06;
 
-import java.util.Iterator;
-import java.util.NoSuchElementException;
+
+import java.util.*;
 
 public class DoublyLinkedList<E> implements List<E>, Iterable<E>{
-
+    
+	//Here are the head and tail nodes and total list size
+    int size;
+    Node<E> head;
+    Node<E> tail;
+    
 	@Override
 	public void addFirst(E element) {
-		// TODO Auto-generated method stub
+		
+		Node<E> newHead = new Node<E>(element);
+		if (size == 0)
+		{
+			head = newHead;
+			tail = newHead;
+		}
+			
+		head.prev = newHead;
+		newHead.next = head;
+		head = newHead;
+		size++;
 		
 	}
 
 	@Override
 	public void addLast(E o) {
-		// TODO Auto-generated method stub
+		
+		Node<E> newTail = new Node<E>(o);
+		if (size == 0)
+		{
+			head = newTail;
+			tail = newTail;
+		}
+		
+		tail.next = newTail;
+		newTail.prev = tail;
+		tail = newTail;
+		size++;
 		
 	}
 
 	@Override
 	public void add(int index, E element) throws IndexOutOfBoundsException {
-		// TODO Auto-generated method stub
+		
+		if ((index > size - 1) || (index < 0))
+		{
+			 throw new IndexOutOfBoundsException();
+		}
+		//Still needs to be implemented
+		
 		
 	}
 
@@ -97,13 +130,44 @@ public class DoublyLinkedList<E> implements List<E>, Iterable<E>{
 
 	@Override
 	public Iterator<E> iterator() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+		Iterator<E> iter = new Iterator<E>() {
+
+		 private Node<E> currentIndex = head;
+
+         @Override
+         public boolean hasNext() {
+             return currentIndex.next != null;
+         }
+
+         @SuppressWarnings("unchecked")
+		@Override
+         public E next() {
+        	Node<E> next = currentIndex;
+        	currentIndex = head.next;
+			return (E) next;
+			//not sure if this is working yet
+             
+         }
+
+         @Override
+         public void remove() {
+             throw new UnsupportedOperationException();
+         }
+     };
+     return iter;
+ }
 	
-	public DoublyLinkedList(){
+	
+	public DoublyLinkedList() {
 		
+		head = null;
+		tail = null;
+		size = 0;
 		
 	}
 
+
+
+
 }
+
