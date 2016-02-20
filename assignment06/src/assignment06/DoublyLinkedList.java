@@ -1,6 +1,5 @@
 package assignment06;
 
-
 import java.util.*;
 
 public class DoublyLinkedList<E> implements List<E>, Iterable<E>{
@@ -13,16 +12,16 @@ public class DoublyLinkedList<E> implements List<E>, Iterable<E>{
 	@Override
 	public void addFirst(E element) {
 		
-		Node<E> newHead = new Node<E>(element);
+		Node<E> temp = new Node<E>(element);
 		if (size == 0)
 		{
-			head = newHead;
-			tail = newHead;
+			head = temp;
+			tail = temp;
 		}
 			
-		head.prev = newHead;
-		newHead.next = head;
-		head = newHead;
+		head.prev = temp;
+		temp.next = head;
+		head = temp;
 		size++;
 		
 	}
@@ -58,74 +57,167 @@ public class DoublyLinkedList<E> implements List<E>, Iterable<E>{
 
 	@Override
 	public E getFirst() throws NoSuchElementException {
-		// TODO Auto-generated method stub
-		return null;
+		
+		if(head == null){
+			throw new NoSuchElementException();
+		}
+		return head.data;
 	}
 
 	@Override
 	public E getLast() throws NoSuchElementException {
-		// TODO Auto-generated method stub
-		return null;
+		if(tail == null){
+			throw new NoSuchElementException();
+		}
+		return tail.data;
 	}
 
 	@Override
 	public E get(int index) throws IndexOutOfBoundsException {
-		// TODO Auto-generated method stub
-		return null;
+		if (size == 0)
+		{
+			throw new IndexOutOfBoundsException();
+		}
+		Node<E> temp = head;	
+		for(int i = 0; i == index; i++)
+		{
+			temp = temp.next;
+		}
+		return temp.data;
+			
 	}
 
 	@Override
 	public E removeFirst() throws NoSuchElementException {
-		// TODO Auto-generated method stub
-		return null;
+		
+		if (head == null)
+		{
+			throw new NoSuchElementException();
+		}
+		
+		E value = head.data;	
+		head.next.prev = null;
+		head = head.next;
+		size--;		
+		return value;
 	}
 
 	@Override
 	public E removeLast() throws NoSuchElementException {
-		// TODO Auto-generated method stub
-		return null;
+		
+		if (tail == null)
+		{
+			throw new NoSuchElementException();
+		}
+		
+		E value = tail.data;
+		tail.prev.next = null;
+		tail = tail.prev;
+		size--;
+		return value;
+				
 	}
 
 	@Override
 	public E remove(int index) throws IndexOutOfBoundsException {
-		// TODO Auto-generated method stub
-		return null;
+		if (index < 0 || index >= size())
+		{
+			throw new IndexOutOfBoundsException();
+		}
+		Node<E> temp = head;	
+		for(int i = 0; i == index; i++)
+		{
+			temp = temp.next;
+		}
+		temp.prev.next = temp.next;
+		temp.next.prev = temp.prev;
+		size--;
+		return temp.data;
 	}
 
 	@Override
 	public int indexOf(E element) {
-		// TODO Auto-generated method stub
-		return 0;
+		if (size == 0)
+		{
+			throw new NoSuchElementException();
+		}
+		Node<E> temp = head;	
+		for(int i = 0; i < size; i++)
+		{
+			if (temp.data == element)
+			{
+				return i;
+			}
+			temp = temp.next;
+		}
+		return -1;
+		
 	}
 
 	@Override
 	public int lastIndexOf(E element) {
-		// TODO Auto-generated method stub
-		return 0;
+		if (size == 0)
+		{
+			throw new NoSuchElementException();
+		}
+		Node<E> temp = head;	
+		int index = 0;
+		for(int i = 0; i < size; i++)
+		{
+			if (temp.data == element)
+			{
+				index = i;
+			}
+			temp = temp.next;
+		}
+		if (index != 0)
+		{
+			return index;
+		}
+		else if(head.data == element)
+		{
+			return 0;
+		}
+		else
+		{
+		return -1;
+		}
 	}
 
 	@Override
 	public int size() {
-		// TODO Auto-generated method stub
-		return 0;
+		return size;
 	}
 
 	@Override
 	public boolean isEmpty() {
-		// TODO Auto-generated method stub
+		if (head != null)
+		{
+			return true;
+		}
 		return false;
 	}
 
 	@Override
 	public void clear() {
-		// TODO Auto-generated method stub
+		head = null;
+		tail = null;
+		size = 0;
 		
 	}
 
 	@Override
 	public Object[] toArray() {
-		// TODO Auto-generated method stub
-		return null;
+		Object[] array = new Object[size];
+		Node<E> temp = head;
+		
+		for(int i = 0; i < size; i++)
+		{
+			array[i] = temp.data;
+			temp = temp.next;
+		}
+		return array;
+		
 	}
 
 	@Override
@@ -139,13 +231,11 @@ public class DoublyLinkedList<E> implements List<E>, Iterable<E>{
              return currentIndex.next != null;
          }
 
-         @SuppressWarnings("unchecked")
 		@Override
          public E next() {
         	Node<E> next = currentIndex;
         	currentIndex = head.next;
-			return (E) next;
-			//not sure if this is working yet
+			return next.data;
              
          }
 
