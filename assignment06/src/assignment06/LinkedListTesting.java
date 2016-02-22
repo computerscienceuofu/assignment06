@@ -10,9 +10,12 @@ public class LinkedListTesting {
 	public void test() {
 		DoublyLinkedList<String> testlist = new DoublyLinkedList<String>();
 		testlist.addFirst("cat");
-		testlist.addFirst("dog");
-		testlist.addFirst("monkey");
-		testlist.addFirst("elephant");
+		testlist.add(0, "pig");
+		testlist.add(1, "donkey");
+		testlist.remove(0);
+		System.out.println(testlist.getFirst());
+		
+		
 		
 	}
 

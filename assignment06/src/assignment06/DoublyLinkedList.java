@@ -50,8 +50,28 @@ public class DoublyLinkedList<E> implements List<E>, Iterable<E>{
 		{
 			 throw new IndexOutOfBoundsException();
 		}
-		//Still needs to be implemented
+	
+		Node<E> temp = new Node<E>(element);
+		Node<E> runner = head;
 		
+		if(index ==-0)
+		{
+			head.prev = temp;
+			temp.next = head;
+			head = temp;
+			size++;
+		}
+		
+		for(int i = 0; i < index; i++)
+		{
+			runner = runner.next;			
+		}
+		
+		temp.next = runner;
+		temp.prev = runner.prev;
+		runner.prev = temp;
+		temp.prev.next = temp;
+		size++;
 		
 	}
 
@@ -74,13 +94,18 @@ public class DoublyLinkedList<E> implements List<E>, Iterable<E>{
 
 	@Override
 	public E get(int index) throws IndexOutOfBoundsException {
-		if (size == 0)
+		if (size == 0 || index > size - 1)
 		{
 			throw new IndexOutOfBoundsException();
 		}
+		
 		Node<E> temp = head;	
-		for(int i = 0; i == index; i++)
+		for(int i = 0; i < index + 1; i++)
 		{
+			if (i == index)
+			{
+				return temp.data;
+			}
 			temp = temp.next;
 		}
 		return temp.data;
@@ -120,18 +145,30 @@ public class DoublyLinkedList<E> implements List<E>, Iterable<E>{
 
 	@Override
 	public E remove(int index) throws IndexOutOfBoundsException {
-		if (index < 0 || index >= size())
+		if (index < 0 || index > size - 1)
 		{
 			throw new IndexOutOfBoundsException();
 		}
 		Node<E> temp = head;	
 		for(int i = 0; i == index; i++)
 		{
+			if (i==index && index != 0)
+			{
+				temp.prev.next = temp.next;
+				temp.next.prev = temp.prev;
+				size--;
+				return temp.data;
+			}
+			if (index == 0)
+			{	
+				head = temp.next;
+				size--;		
+				return temp.data;
+			}
+			
 			temp = temp.next;
 		}
-		temp.prev.next = temp.next;
-		temp.next.prev = temp.prev;
-		size--;
+		
 		return temp.data;
 	}
 
@@ -255,9 +292,6 @@ public class DoublyLinkedList<E> implements List<E>, Iterable<E>{
 		size = 0;
 		
 	}
-
-
-
 
 }
 
