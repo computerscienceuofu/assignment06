@@ -54,7 +54,7 @@ public class DoublyLinkedList<E> implements List<E>, Iterable<E>{
 		Node<E> temp = new Node<E>(element);
 		Node<E> runner = head;
 		
-		if(index ==-0)
+		if(index == 0)
 		{
 			head.prev = temp;
 			temp.next = head;
