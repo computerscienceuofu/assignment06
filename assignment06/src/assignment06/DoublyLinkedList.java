@@ -21,13 +21,15 @@ public class DoublyLinkedList<E> implements List<E>, Iterable<E>{
 			tail.next = null;
 			size++;
 		}
-		else{		
-		head.prev = temp;
-		temp.next = head;
-		head = temp;
-		head.prev = null;
-		tail.next = null;
-		size++;
+		
+		else
+		{		
+			head.prev = temp;
+			temp.next = head;
+			head = temp;
+			head.prev = null;
+			tail.next = null;
+			size++;
 		}
 		
 	}
@@ -44,6 +46,7 @@ public class DoublyLinkedList<E> implements List<E>, Iterable<E>{
 			tail.next = null;
 			size++;
 		}
+		
 		else
 		{
 		tail.next = newTail;
@@ -68,14 +71,13 @@ public class DoublyLinkedList<E> implements List<E>, Iterable<E>{
 			tail.next = null;
 			size++;
 		} 
+		
 		else if (index == size - 1)
 		{
 			Node<E> temp3 = tail;
 			temp3 = temp3.prev;
-			temp3.next = temp;
-			temp.next = tail;
-			temp.prev = temp3;
-			temp.next = tail;
+			temp3.next = temp;			
+			temp.prev = temp3;		
 			temp3.prev = temp;
 			temp.next = tail;
 			tail.prev = temp;
@@ -84,6 +86,7 @@ public class DoublyLinkedList<E> implements List<E>, Iterable<E>{
 			
 			size++;
 		}
+		
 		else 
 		{
 			int x = 1;
@@ -151,7 +154,8 @@ public class DoublyLinkedList<E> implements List<E>, Iterable<E>{
 		}
 		
 		E value = head.data;	
-		head.next.prev = null;
+		Node<E> next = head.next;
+		next.prev = null;
 		head = head.next;
 		size--;		
 		return value;
@@ -289,32 +293,65 @@ public class DoublyLinkedList<E> implements List<E>, Iterable<E>{
 
 	@Override
 	public Iterator<E> iterator() {
+		
 		Iterator<E> iter = new Iterator<E>() {
 
 		 private Node<E> currentIndex = head;
+		 int x = 0;
+		 int counter = 0;
+
 
          @Override
          public boolean hasNext() {
-             return currentIndex.next != null;
+        	 if (currentIndex.next != null)
+        	 {
+             return true;
+        	 }
+        	 return false;
+			
          }
 
 		@Override
          public E next() {
-        	Node<E> next = currentIndex;
-        	currentIndex = head.next;
-			return next.data;
+			if (currentIndex.next == null)
+			{
+				throw new NoSuchElementException();
+			}
+			
+			if(x == 0)
+			{
+				x = 1;
+				return currentIndex.data;
+			}
+			if (currentIndex.next.data == null)
+			{
+				x = 0;
+			}
+			currentIndex = currentIndex.next;
+			counter++;
+			return currentIndex.data;
              
          }
 
          @Override
          public void remove() {
-             throw new UnsupportedOperationException();
+        	if(currentIndex == null)
+        	{
+        		throw new IllegalStateException();
+        	}
+        	
+        	if (currentIndex != null)        	 
+        	{
+                		
+                	DoublyLinkedList.this.remove(counter); 
+                	counter = 0;
+        	 }
          }
      };
+     
      return iter;
  }
-	
-	
+		
 	public DoublyLinkedList() {
 		
 		head = null;
@@ -322,6 +359,7 @@ public class DoublyLinkedList<E> implements List<E>, Iterable<E>{
 		size = 0;
 		
 	}
+
 
 	
 
