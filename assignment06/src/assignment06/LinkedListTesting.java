@@ -12,8 +12,14 @@ public class LinkedListTesting {
 		testlist.addFirst("cat");
 		testlist.add(0, "pig");
 		testlist.add(1, "donkey");
-		testlist.remove(0);
-		System.out.println(testlist.getFirst());
+		testlist.add(2, "Monkey");
+		testlist.add(3, "fish");
+		testlist.add(2, "dog");
+		for(int i = 0; i < testlist.size(); i++)
+		{
+			System.out.println(testlist.get(i));
+		}
+		
 		
 		
 		

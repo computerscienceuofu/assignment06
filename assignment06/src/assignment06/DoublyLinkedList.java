@@ -17,12 +17,18 @@ public class DoublyLinkedList<E> implements List<E>, Iterable<E>{
 		{
 			head = temp;
 			tail = temp;
+			head.prev = null;
+			tail.next = null;
+			size++;
 		}
-			
+		else{		
 		head.prev = temp;
 		temp.next = head;
 		head = temp;
+		head.prev = null;
+		tail.next = null;
 		size++;
+		}
 		
 	}
 
@@ -34,45 +40,69 @@ public class DoublyLinkedList<E> implements List<E>, Iterable<E>{
 		{
 			head = newTail;
 			tail = newTail;
+			head.prev = null;
+			tail.next = null;
+			size++;
 		}
-		
+		else
+		{
 		tail.next = newTail;
 		newTail.prev = tail;
 		tail = newTail;
+		head.prev = null;
+		tail.next = null;
 		size++;
+		}
 		
 	}
-
 	@Override
-	public void add(int index, E element) throws IndexOutOfBoundsException {
-		
-		if ((index > size - 1) || (index < 0))
-		{
-			 throw new IndexOutOfBoundsException();
-		}
-	
+	public void add(int index, E element) throws IndexOutOfBoundsException  {
 		Node<E> temp = new Node<E>(element);
 		Node<E> runner = head;
 		
-		if(index == 0)
-		{
+		if (index == 0 && size != 0) {
 			head.prev = temp;
 			temp.next = head;
 			head = temp;
+			head.prev = null;
+			tail.next = null;
+			size++;
+		} 
+		else if (index == size - 1)
+		{
+			Node<E> temp3 = tail;
+			temp3 = temp3.prev;
+			temp3.next = temp;
+			temp.next = tail;
+			temp.prev = temp3;
+			temp.next = tail;
+			temp3.prev = temp;
+			temp.next = tail;
+			tail.prev = temp;
+			head.prev = null;
+			tail.next = null;
+			
 			size++;
 		}
-		
-		for(int i = 0; i < index; i++)
+		else 
 		{
-			runner = runner.next;			
+			int x = 1;
+			while (x < index)
+			{
+				runner = runner.next;
+				x++;
+			}
+			Node<E> temp2 = runner;
+			Node<E> temp4 = runner.next;
+			temp2.next = temp;
+			temp.prev = temp2;
+			temp.next = temp4;
+			temp4.prev = temp;
+			head.prev = null;
+			tail.next = null;
+			size++;
+
 		}
-		
-		temp.next = runner;
-		temp.prev = runner.prev;
-		runner.prev = temp;
-		temp.prev.next = temp;
-		size++;
-		
 	}
 
 	@Override
@@ -292,6 +322,8 @@ public class DoublyLinkedList<E> implements List<E>, Iterable<E>{
 		size = 0;
 		
 	}
+
+	
 
 }
 
