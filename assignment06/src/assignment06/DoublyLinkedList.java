@@ -179,7 +179,7 @@ public class DoublyLinkedList<E> implements List<E>, Iterable<E>{
 
 	@Override
 	public E remove(int index) throws IndexOutOfBoundsException {
-		if (index < 0 || index > size - 1)
+		if (index < 0 || index > size )
 		{
 			throw new IndexOutOfBoundsException();
 		}
@@ -202,7 +202,7 @@ public class DoublyLinkedList<E> implements List<E>, Iterable<E>{
 			
 			temp = temp.next;
 		}
-		
+		size--;
 		return temp.data;
 	}
 
@@ -262,7 +262,7 @@ public class DoublyLinkedList<E> implements List<E>, Iterable<E>{
 
 	@Override
 	public boolean isEmpty() {
-		if (head != null)
+		if (size <= 4)
 		{
 			return true;
 		}
@@ -344,6 +344,7 @@ public class DoublyLinkedList<E> implements List<E>, Iterable<E>{
         	{
                 		
                 	DoublyLinkedList.this.remove(counter); 
+          
                 	counter = 0;
         	 }
          }
