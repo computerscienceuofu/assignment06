@@ -5,7 +5,7 @@ import java.util.*;
 
 /**
  * 
- * @author Chris Murphy && Li Yu
+ * @author Christopher Murphy && Li Yu
  *
  * @param <E>
  */
@@ -282,7 +282,7 @@ public class DoublyLinkedList<E> implements List<E>, Iterable<E>{
 
 	@Override
 	public boolean isEmpty() {
-		if (size <= 4)
+		if (size == 0)
 		{
 			return true;
 		}

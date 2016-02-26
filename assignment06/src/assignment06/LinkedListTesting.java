@@ -210,13 +210,6 @@ public class LinkedListTesting {
 		testlist.add(2, "pig");
 		testlist.add(3, "fish");	
 		assertEquals(false, testlist.isEmpty());	
-		Iterator<String> test2 = testlist.iterator();
-		while(test2.hasNext())
-		    {
-		    	test2.next();
-		    	test2.remove();	        
-		    }	
-		assertEquals(true, testlist.isEmpty());
 		    
 	}
 	
