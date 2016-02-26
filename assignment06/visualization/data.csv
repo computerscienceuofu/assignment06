@@ -1,0 +1,199 @@
+Linked Lists addLast Test (Java and Doubly),Number of items added,Time in NanoSeconds
+add Last Doubly,100000,5110
+add Last Doubly,200000,300
+add Last Doubly,300000,0
+add Last Doubly,400000,0
+add Last Doubly,500000,0
+add Last Doubly,600000,0
+add Last Doubly,700000,0
+add Last Doubly,800000,0
+add Last Doubly,1000000,301
+add Last Doubly,1100000,0
+add Last Doubly,1200000,300
+add Last Doubly,1300000,0
+add Last Doubly,1400000,0
+add Last Doubly,1500000,0
+add Last Doubly,1600000,0
+add Last Doubly,1700000,0
+add Last Doubly,1800000,0
+add Last Doubly,1900000,0
+add Last Doubly,2000000,0
+add Last Doubly,2100000,0
+add Last Doubly,2200000,0
+add Last Doubly,2300000,0
+add Last Doubly,2400000,301
+add Last Doubly,2500000,0
+add Last Doubly,2600000,4208
+add Last Doubly,2700000,0
+add Last Doubly,2800000,0
+add Last Doubly,2900000,0
+add Last Doubly,3000000,0
+add Last Doubly,3100000,0
+add Last Doubly,3200000,0
+add Last Doubly,3300000,300
+add Last Doubly,3400000,300
+add Last Doubly,3500000,0
+add Last Doubly,3600000,0
+add Last Doubly,3700000,0
+add Last Doubly,3800000,300
+add Last Doubly,3900000,301
+add Last Doubly,4000000,0
+add Last Doubly,4100000,301
+add Last Doubly,4200000,0
+add Last Doubly,4300000,0
+add Last Doubly,4400000,0
+add Last Doubly,4500000,300
+add Last Doubly,4600000,301
+add Last Doubly,4700000,301
+add Last Doubly,4800000,0
+add Last Doubly,4900000,0
+add Last Doubly,5000000,301
+add Last Doubly,5100000,300
+add Last Doubly,5200000,0
+add Last Doubly,5300000,300
+add Last Doubly,5400000,0
+add Last Doubly,5500000,4208
+add Last Doubly,5600000,300
+add Last Doubly,5700000,300
+add Last Doubly,5800000,0
+add Last Doubly,5900000,301
+add Last Doubly,6000000,0
+add Last Doubly,6100000,0
+add Last Doubly,6200000,0
+add Last Doubly,6300000,0
+add Last Doubly,6400000,301
+add Last Doubly,6500000,0
+add Last Doubly,6600000,0
+add Last Doubly,6700000,0
+add Last Doubly,6800000,0
+add Last Doubly,6900000,300
+add Last Doubly,7000000,301
+add Last Doubly,7100000,0
+add Last Doubly,7200000,0
+add Last Doubly,7300000,0
+add Last Doubly,7400000,0
+add Last Doubly,7500000,0
+add Last Doubly,7600000,300
+add Last Doubly,7700000,0
+add Last Doubly,7800000,0
+add Last Doubly,7900000,0
+add Last Doubly,8000000,0
+add Last Doubly,8100000,300
+add Last Doubly,8200000,0
+add Last Doubly,8300000,6913
+add Last Doubly,8400000,0
+add Last Doubly,8500000,0
+add Last Doubly,8600000,0
+add Last Doubly,8700000,0
+add Last Doubly,8800000,0
+add Last Doubly,8900000,0
+add Last Doubly,9000000,0
+add Last Doubly,9100000,301
+add Last Doubly,9200000,0
+add Last Doubly,9300000,301
+add Last Doubly,9400000,0
+add Last Doubly,9500000,0
+add Last Doubly,9600000,0
+add Last Doubly,9700000,0
+add Last Doubly,9800000,0
+add Last Doubly,9900000,300
+add Last Doubly,10000000,300
+add Last java's Linked list,200000,4207
+add Last java's Linked list,300000,9017
+add Last java's Linked list,400000,9918
+add Last java's Linked list,500000,1203
+add Last java's Linked list,600000,1203
+add Last java's Linked list,700000,1202
+add Last java's Linked list,800000,901
+add Last java's Linked list,900000,1202
+add Last java's Linked list,1000000,902
+add Last java's Linked list,1100000,902
+add Last java's Linked list,1200000,902
+add Last java's Linked list,1300000,8416
+add Last java's Linked list,1400000,1202
+add Last java's Linked list,1500000,902
+add Last java's Linked list,1600000,1202
+add Last java's Linked list,1700000,1502
+add Last java's Linked list,1800000,1203
+add Last java's Linked list,1900000,1202
+add Last java's Linked list,2000000,1202
+add Last java's Linked list,2100000,1203
+add Last java's Linked list,2200000,10520
+add Last java's Linked list,2300000,902
+add Last java's Linked list,2400000,901
+add Last java's Linked list,2500000,1503
+add Last java's Linked list,2600000,902
+add Last java's Linked list,2700000,902
+add Last java's Linked list,2800000,902
+add Last java's Linked list,2900000,901
+add Last java's Linked list,3000000,901
+add Last java's Linked list,3100000,1202
+add Last java's Linked list,3200000,601
+add Last java's Linked list,3300000,1803
+add Last java's Linked list,3400000,901
+add Last java's Linked list,3500000,902
+add Last java's Linked list,3600000,1203
+add Last java's Linked list,3700000,902
+add Last java's Linked list,3800000,901
+add Last java's Linked list,3900000,901
+add Last java's Linked list,4000000,601
+add Last java's Linked list,4100000,1202
+add Last java's Linked list,4200000,902
+add Last java's Linked list,4300000,902
+add Last java's Linked list,4400000,902
+add Last java's Linked list,4500000,1202
+add Last java's Linked list,4600000,901
+add Last java's Linked list,4700000,902
+add Last java's Linked list,4800000,4509
+add Last java's Linked list,4900000,901
+add Last java's Linked list,5000000,902
+add Last java's Linked list,5100000,601
+add Last java's Linked list,5200000,601
+add Last java's Linked list,5300000,901
+add Last java's Linked list,5400000,24947
+add Last java's Linked list,5500000,902
+add Last java's Linked list,5600000,902
+add Last java's Linked list,5700000,601
+add Last java's Linked list,5800000,601
+add Last java's Linked list,5900000,901
+add Last java's Linked list,6000000,901
+add Last java's Linked list,6100000,901
+add Last java's Linked list,6200000,1203
+add Last java's Linked list,6300000,10520
+add Last java's Linked list,6400000,902
+add Last java's Linked list,6500000,601
+add Last java's Linked list,6600000,902
+add Last java's Linked list,6700000,901
+add Last java's Linked list,6800000,901
+add Last java's Linked list,6900000,902
+add Last java's Linked list,7000000,902
+add Last java's Linked list,7100000,3006
+add Last java's Linked list,7200000,902
+add Last java's Linked list,7300000,902
+add Last java's Linked list,7400000,601
+add Last java's Linked list,7500000,902
+add Last java's Linked list,7600000,1503
+add Last java's Linked list,7700000,902
+add Last java's Linked list,7800000,901
+add Last java's Linked list,7900000,602
+add Last java's Linked list,8000000,901
+add Last java's Linked list,8100000,601
+add Last java's Linked list,8200000,902
+add Last java's Linked list,8300000,902
+add Last java's Linked list,8400000,601
+add Last java's Linked list,8500000,902
+add Last java's Linked list,8600000,902
+add Last java's Linked list,8700000,901
+add Last java's Linked list,8800000,902
+add Last java's Linked list,8900000,602
+add Last java's Linked list,9000000,601
+add Last java's Linked list,9100000,902
+add Last java's Linked list,9200000,902
+add Last java's Linked list,9300000,902
+add Last java's Linked list,9400000,901
+add Last java's Linked list,9500000,901
+add Last java's Linked list,9600000,902
+add Last java's Linked list,9700000,1202
+add Last java's Linked list,9800000,902
+add Last java's Linked list,9900000,601
+add Last java's Linked list,10000000,902

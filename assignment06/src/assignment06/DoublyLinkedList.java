@@ -2,6 +2,13 @@ package assignment06;
 
 import java.util.*;
 
+
+/**
+ * 
+ * @author Chris Murphy && Li Yu
+ *
+ * @param <E>
+ */
 public class DoublyLinkedList<E> implements List<E>, Iterable<E>{
     
 	//Here are the head and tail nodes and total list size
@@ -63,30 +70,39 @@ public class DoublyLinkedList<E> implements List<E>, Iterable<E>{
 		Node<E> temp = new Node<E>(element);
 		Node<E> runner = head;
 		
-		if (index == 0 && size != 0) {
-			head.prev = temp;
-			temp.next = head;
-			head = temp;
-			head.prev = null;
-			tail.next = null;
-			size++;
-		} 
-		
-		else if (index == size - 1)
+		if(size == 0 && index == 0)
 		{
-			Node<E> temp3 = tail;
-			temp3 = temp3.prev;
-			temp3.next = temp;			
-			temp.prev = temp3;		
-			temp3.prev = temp;
-			temp.next = tail;
-			tail.prev = temp;
-			head.prev = null;
-			tail.next = null;
-			
+			head = temp;
+			tail = temp;
 			size++;
 		}
 		
+		else if (index == 0 && size != 0) {
+			runner.prev = temp;
+			temp.next = runner;
+			head = temp;
+			size++;
+		} 
+		
+		else if(index == size)
+		{
+			int x = 1;
+			while (x < index)
+			{
+				runner = runner.next;
+				x++;
+			}
+			
+			runner.next = temp;
+			temp.prev = runner;
+			tail = temp;
+			
+			head.prev = null;
+
+			
+			size++;
+
+		}
 		else 
 		{
 			int x = 1;
@@ -95,14 +111,15 @@ public class DoublyLinkedList<E> implements List<E>, Iterable<E>{
 				runner = runner.next;
 				x++;
 			}
-			Node<E> temp2 = runner;
-			Node<E> temp4 = runner.next;
-			temp2.next = temp;
-			temp.prev = temp2;
-			temp.next = temp4;
-			temp4.prev = temp;
+			Node<E> midTemp = runner.next;
+			runner.next = temp;
+			temp.prev = runner;
+			temp.next = midTemp;
+			midTemp.prev = runner.next;
+			
 			head.prev = null;
 			tail.next = null;
+			
 			size++;
 
 		}
@@ -170,7 +187,6 @@ public class DoublyLinkedList<E> implements List<E>, Iterable<E>{
 		}
 		
 		E value = tail.data;
-		tail.prev.next = null;
 		tail = tail.prev;
 		size--;
 		return value;
@@ -179,30 +195,34 @@ public class DoublyLinkedList<E> implements List<E>, Iterable<E>{
 
 	@Override
 	public E remove(int index) throws IndexOutOfBoundsException {
-		if (index < 0 || index > size )
-		{
+		
+		if ((index >= size) || (index < 0))
 			throw new IndexOutOfBoundsException();
-		}
-		Node<E> temp = head;	
-		for(int i = 0; i == index; i++)
+		
+		Node<E> temp = head;
+		int x = 0;
+		while (x < index)
 		{
-			if (i==index && index != 0)
-			{
-				temp.prev.next = temp.next;
-				temp.next.prev = temp.prev;
-				size--;
-				return temp.data;
-			}
-			if (index == 0)
-			{	
-				head = temp.next;
-				size--;		
-				return temp.data;
-			}
-			
 			temp = temp.next;
+			x++;
 		}
-		size--;
+		if(index == 0)
+		{
+			removeFirst();
+		}
+		else if(index == size - 1)
+		{
+			removeLast();
+		}
+		
+		else if (index != 0 || index != size - 1)
+		{
+			Node<E> left = temp.prev;
+			Node<E> right = temp.next;
+			left.next = right;
+			right.prev = left;
+			size--;
+		}
 		return temp.data;
 	}
 
@@ -291,6 +311,11 @@ public class DoublyLinkedList<E> implements List<E>, Iterable<E>{
 		
 	}
 
+	
+	/**
+	 * The iterator method steps through each element in the linked list.  It can also check if it has a next element and 
+	 * also remove the current index.  
+	 */
 	@Override
 	public Iterator<E> iterator() {
 		
@@ -352,17 +377,6 @@ public class DoublyLinkedList<E> implements List<E>, Iterable<E>{
      
      return iter;
  }
-		
-	public DoublyLinkedList() {
-		
-		head = null;
-		tail = null;
-		size = 0;
-		
-	}
-
-
-	
 
 }
 

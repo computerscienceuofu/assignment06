@@ -1,5 +1,12 @@
 package assignment06;
 
+
+/**
+ * This Node method is where the Nodes values are kept, such as next and prev.
+ * @author Chris Murphy && Li Yu
+ *
+ * @param <E>
+ */
 public class Node<E> {
 	
 	E data;

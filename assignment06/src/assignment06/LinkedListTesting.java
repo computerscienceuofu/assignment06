@@ -2,24 +2,149 @@ package assignment06;
 
 import static org.junit.Assert.*;
 
-import java.util.Iterator;
 
+import java.util.Iterator;
 import org.junit.Test;
 
 public class LinkedListTesting {
 
+	static long startTime = 0;
+	static long stopTime = 0;
+	static long aveTime = 0;
+	static long listsize = 0;
+	
+//	@Test
+//	public void TimingTest(){
+//		try(FileWriter fw = new FileWriter(new File("visualization/data.csv"))) { //open up a file writer so we can write to file.
+//			
+//			System.out.println("AddFirst Tests");
+//			fw.write("Linked Lists addLast Test (Java and Doubly)" + "\t" + "Number of items added" + "\t" + "Time in NanoSeconds" + "\n");
+//			
+//			
+//			DoublyLinkedList<String> temp = new DoublyLinkedList<String>();
+//			LinkedList<String> Link = new LinkedList<String>();
+//				
+//				int search = 0;
+//				for (int size2 = 1; size2 < 10000000; size2 += 1)
+//				{	
+//					temp.addLast("CatsAreGreat");
+//					search++;
+//					if (search % 100000 == 0)
+//					{
+//						startTime = System.nanoTime();
+//						temp.addLast("CatsAreGreat");
+//						stopTime = System.nanoTime();
+//						aveTime = stopTime - startTime;
+//						fw.write("add Last Doubly" + "\t" + search + "\t" + aveTime + "\n"); // write to file.
+//						search++;
+//					}
+//					
+//															
+//				}
+//
+//				search = 0;
+//	     		for (int size4 = 1; size4 < 10000000; size4 += 1)
+//	     		{		
+//	     			temp.addLast("CatsAreGreat");
+//					search++;
+//					if (search % 100000 == 0)
+//					{
+//	     			startTime = System.nanoTime();
+//	     			Link.addLast("CatsAreGreat");	
+//	     			stopTime = System.nanoTime();
+//					aveTime = stopTime - startTime;
+//					fw.write("add Last java's Linked list" + "\t" + search + "\t" + aveTime + "\n"); // write to file.
+//					search++;
+//					}
+//	     		
+//	     		}
+//	     		
+//	     		
+//			}
+//		
+//			
+//	  		catch (IOException e) 
+//	  		{
+//				e.printStackTrace();
+//			
+//	  		}
+//
+//	}
+//	
 	@Test
 	public void GetFirsttest() {
 		DoublyLinkedList<String> testlist = new DoublyLinkedList<String>();
-		testlist.addFirst("cat");
+	
 		testlist.add(0, "pig");
 		testlist.add(1, "donkey");
 		testlist.add(2, "Monkey");
 		testlist.add(3, "fish");
-		testlist.add(2, "dog");	
 		assertEquals("pig", testlist.getFirst());
 		
 	}
+	
+	@Test
+	public void RemoveTest() {
+		DoublyLinkedList<String> testlist = new DoublyLinkedList<String>();
+		testlist.add(0, "pig");
+		testlist.add(1, "donkey");
+		testlist.add(2, "Monkey");
+		testlist.add(3, "fish");
+		testlist.add(2, "dog");
+		testlist.remove(2);
+		assertEquals("pig", testlist.getFirst());
+	}
+	
+	@Test
+	public void RemoveEdgeTest2() {
+		DoublyLinkedList<String> testlist = new DoublyLinkedList<String>();
+		testlist.add(0, "pig");
+		testlist.add(1, "donkey");
+		testlist.add(2, "Monkey");
+		testlist.add(3, "fish");
+		testlist.add(2, "dog");
+		testlist.remove(4);
+		assertEquals("pig", testlist.getFirst());
+	}
+	
+	@Test
+	public void RemoveEdgeTest3() {
+		DoublyLinkedList<String> testlist = new DoublyLinkedList<String>();
+		testlist.add(0, "pig");
+		testlist.add(1, "donkey");
+		testlist.add(2, "Monkey");
+		testlist.add(3, "fish");
+		testlist.add(2, "dog");
+		testlist.remove(0);
+		assertEquals("donkey", testlist.getFirst());
+	}
+	
+	@Test
+	public void RemoveMiddleTest() {
+		DoublyLinkedList<String> testlist = new DoublyLinkedList<String>();
+		testlist.add(0, "pig");
+		testlist.add(1, "donkey");
+		testlist.add(2, "Monkey");
+		testlist.add(3, "fish");
+		testlist.add(4, "dog");
+		testlist.remove(2);
+		assertEquals("fish", testlist.get(2));
+	}
+	
+	@Test
+	public void RemoveMiddleTest2() {
+		DoublyLinkedList<String> testlist = new DoublyLinkedList<String>();
+		testlist.add(0, "pig");
+		testlist.add(1, "donkey");
+		testlist.add(2, "Monkey");
+		testlist.add(3, "fish");
+		testlist.add(4, "dog");
+		testlist.add(2, "dog");
+		testlist.remove(2);
+		assertEquals("Monkey", testlist.get(2));
+	}
+	
+	
 	
 	@Test
 	public void GetLasttest() {
@@ -30,6 +155,7 @@ public class LinkedListTesting {
 		testlist.add(2, "Monkey");
 		testlist.add(3, "fish");
 		testlist.add(2, "dog");	
+
 		assertEquals("cat", testlist.getLast());
 		
 	}
@@ -177,7 +303,6 @@ public class LinkedListTesting {
 	    	test2.next();
 	    	test2.remove();	        
 	    }	
-	    testlist.add(2, "dog");
 	    
 	 
 	}
